@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BURGER</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=cairo:wght@400;700&display=swap">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        body{
+           /*margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fff5e6;
+            color: #333;
+            font-family: 'cairo', sans-serif;
+            scroll-behavior: smooth;*/
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            
+        }
+         header{
+            position:fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+             z-index: 1000;}
+
+
+       /*     background-color:#fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }*/
+
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 3rem;
+            background-color: #ffffff;
+
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+           
+
+        }
+        .logo{
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #27ae60;
+            
+        }
+        .nav-links{
+            list-style: none;
+            display:flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+
+        }
+        .nav-links li a{
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+          
+        }
+        .nav-links li a:hover{
+            color: #27ae60 !important;
+        }
+
+       /* #contact{
+            padding: 2rem;
+            margin: 0 auto;
+            max-width: 1200px;
+        }*/
+        /*زر موبايل*/
+        .menu-toggle{
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            padding: 0;
+
+        }
+        .menu-toggle span{
+            display: block;
+            height: 3px;
+            background-color: #333;
+            border-radius: 2px;
+        }
+        .menu{
+            padding: 2rem;
+            text-align: center;
+            background-color: #f8f8f8;
+            margin-top: 100px;
+        }
+        .menu h2{
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        
+        }
+        .menu-card{
+            background:white;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            width: 280px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .menu-card:hover{
+            transform: translateY(-5px);
+        }
+        .menu-card img{
+            width: 100%;
+            border-radius: 12px;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .menu-card h3{
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #27ae60;
+        }
+        .menu-card p{
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+
+        }
+        .menu-card span{
+            font-weight: bold;
+            color: #333;
+        }
+        
+       
+        .hero{
+            background-image: url('Images/b2.PNG');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            position:relative;
+
+        }
+        .hero::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-content{
+            z-index: 2;
+            max-width: 700px;
+        }
+        .hero h1{
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero-btn{
+            background-color: #27ae60;
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background 0.3s;
+        }
+        .hero-btn:hover{
+            background-color:#1e8449;
+        }
+        
+        .testimonials{
+            text-align: center;
+            padding:3rem 1rem ;
+            background-color: #f8f8f8;
+            color: black;
+        }
+        .testimonials h2{
+            font-size: 2.5rem;
+            margin-top: 2rem;
+            color: #333;
+        }
+        .testimonial-container{
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .testimonial{
+            background-color: white;
+            padding: 1.5rem;
+            box-shadow: 0 2px 100px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 280px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .testimonial img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        .testimonial p{
+            font-size: 1rem;
+            color: #27ae60;
+            margin-bottom: 1rem;
+        }
+        .testimonial h3{
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .testimonial .testimonial p{
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .contact {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            color: black;
+            background-color: #f0f0f0;
+            
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+
+        }
+        .contact h2{
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .contact p{
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+        .contact-form{
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 500px ;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+        .contact-form label{
+            font-size: 1rem;
+            color: #444;
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        .contact-form input, .contact-form textarea{
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .contact-form button{
+            padding: 0.8rem 2rem;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 1rem auto 0 auto;
+        }
+        .contact-form button:hover{
+            background-color: #219150;
+        }
+       
+        .map-container{
+            margin-top: 2rem;
+            text-align: center;
+            width: 100%;
+        }
+        .map-container iframe{
+            border-radius: 8px;
+            width: 100%;
+            height: 400px;
+            border: 0;
+            flex: 1 1 400px ;
+        }
+        .footer { 
+            background-color: #222; 
+            color: #fff;
+             padding: 1rem 1rem; 
+             text-align: center; 
+             margin-top: 2rem;
+            } 
+        .footer-container { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 1rem; 
+        } 
+        .footer-links {
+             display: flex;
+              gap: 1.5rem; 
+              flex-wrap: wrap; 
+              justify-content: center; 
+            } 
+        .footer-links a {
+             color: #fff;
+              text-decoration: none;
+               font-weight: 500; 
+            } 
+        .footer-links a:hover {
+             color: #27ae60;
+             } .footer-contact p {
+                 margin: 0.3rem 0;
+                 } 
+        .footer-bottom { 
+            margin-top: 1rem; font-size: 0.9rem; color: #aaa;
+         } 
+
+        /* Resonsive Design  */
+        @media(max-width: 768px){
+            .nav-links{
+                display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 200px;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links.show{
+                display: flex;
+            }
+           .menu-toggle{
+                display: flex;
+            }
+            .contact{
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-form{
+                padding: 1rem;
+            }
+            .contact-form, .contact iframe{
+                width: 100%;
+            }
+            
+        }
+ 
+
+    </style>
+    </head>
+
+    <body>
+        <header>
+        <nav class="navbar">
+            <div class="logo">BurgerZone</div>
+            <button class="menu-toggle" onclick="togglemenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li ><a href="#home">Home</a></li>
+                <li ><a href="#menu">Menu</a></li>
+                <li ><a href="#team">Team</a></li>
+                <li ><a href="#contact">Contact</a></li>
+            </ul> 
+
+        </nav>
+    </header>
+
+      <!-- <section class ="hero" data-aos="fade-up">
+            <h2>Welcome To The Burger World</h2>
+            <p>Unforgettable flavors and a unique experience</p>
+
+        </section>-->
+       
+        <section id="menu" class="menu" >
+            <h2>Our Menu</h2>
+            <div class="menu-items">
+                <div class="menu-card">
+                     <img src="Images/b4.PNG" alt="Classic Burger">
+                    <h3>Classic Burger</h3>
+                    <p>Juicy beef patty with lettuce,tomato, and our special sauce. </p>
+                    <span>$8.99</span>
+
+                </div>
+                <div class="menu-card" >
+                    <img src="Images/b5.PNG" alt="cheese Blast">
+                    <h3>Cheese Blast</h3>
+                    <p>Double Cheddar , caramelized onions , and grilled beef .</p>
+                    <span>$10.99</span>
+                </div>
+                <div class="menu-card" >
+                    <img src="Images/b6.PNG" alt="Spicy Deluxe">
+                    <h3>Spicy Deluxe</h3>
+                    <p>Spicy sauce , jalapenos, and pepper jack cheese.</p>
+                    <span>$9.49</span>
+                </div>
+            </div>
+        </section>
+        <!--<section id="about" class="about" data-aos="fade-right">
+            <h2>About Us</h2>
+            <p>مطعم برغر نهتم بالجودة والنكهة</p>
+        </section>
+        <section id="features" data-aos="fade-up">
+            <h2>Why Choose Us?</h2>
+            <div class="menu-items" date-aos="fade-up">
+                <div class="menu-item" data-aos="fade-up">
+                    <h3>Fresh Ingredients</h3>
+                    <p>Only the freshest and highest quality ingrredients go into our burgers. </p>
+                </div>
+                <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Signature Flavors</h3>
+                    <p>Our unique recipes set us apart from the rest. </p>
+                </div>
+                <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Fast Services</h3>
+                    <p>Your order is prepared quickly with attention to detail. </p>
+                </div>               
+            </div>
+        </section>-->
+
+
+        
+        <section id="home" class="hero" >
+            <div class="hero-content">
+            <h1>Fresh. Juicy. Grilled to perfrction.</h1>
+            <p>Your new favorite burger joint.</p>
+            <a href="#menu" class="hero-btn">View Menu</a>
+        </div>
+        </section>
+
+        <section id="contact" class="contact" >
+            <h2>Contact Us</h2>
+            <p>Feel free to reach out to us.We would love to hear  from you!. </p>
+            <!--نموذج التواصل-->
+            <form action="#" method="post" class="contact-form">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="5" required></textarea>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>      
+               <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=..." width="600" height="450"
+                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+               </div>
+        </section>
+        <section id="testimonials" class="testimonials" >
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-container" >
+                <div class="testimonial" >
+                    <img src="https:randomuser.me/api/portraits/men/1.jpg" alt="John" >
+                    <p>"Best burger I've ever had! 
+                        Truly unbeatable." </p>
+                    <h3>John Doe</h3>   
+                    <p>Food Blogger</p> 
+                </div>
+                <div class="testimonial">
+                    <img src="https:randomuser.me/api/portraits/women/2.jpg" alt="Jane" >
+                    <p>"Amazing flavors , and the service is top-notch. Highly recommended!" </p>
+                    <h3>Jane Smith</h3>
+                    <p>Restaurant Critic</p>
+                </div>
+                <div class="testimonial" >
+                    <img src="https:randomuser.me/api/portraits/men/3.jpg" alt="Sam">
+                    <p>"An unforgettable experience , I'll definitely be back for more!" </p>
+                    <h3>Sam Lee</h3>
+                        <p>Chef</p>
+                </div>               
+            </div>
+           <!-- <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h3>Burger Boss</h3>
+                    </div>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="#"><i class="fabfa-facebook"></i></a>
+                        <a href="#"><i class="fabfa-twitter"></i></a>
+                        <a href="#"><i class="fabfa-instagram"></i></a>
+
+                    </div>
+                </div>
+                <p>&copy; 2025 Burger Boss. All rights reserved.</p>
+
+            </footer>-->
+
+           <footer class="footer"> 
+           <div class="footer-container"> 
+            <div class="footer-links"> 
+                <a href="#home">Home</a> 
+                <a href="#menu">Menu</a> 
+                <a href="#team">Team</a> 
+                <a href="#contact">Contact</a>
+             </div> <div class="footer-contact"> 
+                <p>Email: info@burgerzone.com</p> 
+                <p>Phone: +123-456-7890</p> 
+            </div> 
+        </div> 
+        <div class="footer-bottom"> 
+            <p>&copy; 2025 BurgerZone. All rights reserved.</p> </div> </footer> 
+        <script> 
+            function togglemenu(){
+                const nav=document.querySelector(".nav-links");
+                nav.classList.toggle("show");
+            }
+        </script>
+        <script> 
+             document.querySelector(".contact-form").
+             addEventListener("submit",
+                function(event){
+                    event.preventDefault();
+                    alert("Your message has been sent successfully!");
+                }
+             )
+                </script>
+
+    </body>
+</html>
+
